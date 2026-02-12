@@ -1,5 +1,11 @@
+import Section2 from '@/components/Section2';
+
 const App = () => {
-  return <h1 className="text-red-500">App</h1>;
+  return (
+    <div className="max-w-lg mx-auto">
+      <Section2 />
+    </div>
+  );
 };
 
 export default App;
