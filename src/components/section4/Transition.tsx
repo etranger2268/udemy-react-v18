@@ -1,4 +1,4 @@
-import { startTransition, useMemo, useState } from 'react';
+import { useMemo, useState, useTransition } from 'react';
 import Avatar from '@/components/section4/_components/Avatar';
 import TaskList from '@/components/section4/_components/TaskList';
 import type { SelectedAssignee } from '@/components/section4/_type/selectedAssignee';
@@ -8,6 +8,7 @@ import { MEMBER } from '@/components/section4/constants/member';
 const tasks = generateDummyTask();
 
 const Transition = () => {
+  const [isPending, startTransition] = useTransition();
   const [selectedAssignee, setSelectedAssignee] = useState<SelectedAssignee | null>(null);
   const taskList = useMemo(
     () =>
@@ -29,6 +30,7 @@ const Transition = () => {
             key={member}
             member={member}
             onClick={handleClick}
+            isPending={isPending}
             isSelected={selectedAssignee === member}
           >
             {member}
