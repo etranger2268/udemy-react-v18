@@ -1,4 +1,4 @@
-import { useMemo, useState, useTransition } from 'react';
+import { useDeferredValue, useMemo, useState, useTransition } from 'react';
 import Avatar from '@/components/section4/_components/Avatar';
 import TaskList from '@/components/section4/_components/TaskList';
 import type { SelectedAssignee } from '@/components/section4/_type/selectedAssignee';
@@ -17,6 +17,7 @@ const Transition = () => {
         : tasks.filter(({ assignee }) => assignee === selectedAssignee),
     [selectedAssignee],
   );
+  // const deferredTaskList = useDeferredValue(taskList);
 
   const handleClick = (member: SelectedAssignee) =>
     startTransition(() => setSelectedAssignee(member));
