@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { flushSync } from 'react-dom';
 
 type Todo = {
   userId: number;
@@ -20,22 +21,32 @@ const AutoBatchOther = () => {
     }
     const data = (await res.json()) as Todo[];
     setIsLoading(false);
-    setTodos(data);
+    flushSync(() => {
+      setTodos(data);
+    });
   };
 
   return (
-    <div>
-      <h2>Automatic Batching確認用（その他）</h2>
+    <div className="text-center space-y-3">
+      <h2 className="text-2xl font-bold text-gray-900">Automatic Batching確認用（その他）</h2>
       <div>
-        <button type="button" onClick={handleClick}>
+        <button
+          type="button"
+          className="py-1 px-3 text-sm font-semibold bg-blue-500 text-white rounded-md transition-all duration-300 hover:opacity-75"
+          onClick={handleClick}
+        >
           API実行
         </button>
       </div>
-      <div>
-        <p>isLoading: {isLoading ? 'true' : 'false'}</p>
-        <ul>
+      <div className="space-y-1">
+        <p className="text-sm font-semibold">isLoading: {isLoading ? 'true' : 'false'}</p>
+        <ul className="text-sm font-semibold">
           {Array.isArray(todos) ? (
-            todos.map((todo) => <li key="todo.id">{todo.title}</li>)
+            todos.map((todo) => (
+              <li key="todo.id" className="font-normal text-gray-500">
+                {todo.title}
+              </li>
+            ))
           ) : (
             <li>todoを取得してください</li>
           )}

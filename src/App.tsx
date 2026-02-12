@@ -4,7 +4,7 @@ import AutoBatchOther from '@/components/section3/AutoBatchOther';
 
 const App = () => {
   return (
-    <div className="max-w-lg mx-auto">
+    <div className="max-w-lg mx-auto space-y-4">
       {/* <Section2 /> */}
       <AutoBatchEventHandler />
       <AutoBatchOther />
