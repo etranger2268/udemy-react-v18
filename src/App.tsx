@@ -3,6 +3,7 @@
 // import AutoBatchOther from '@/components/section3/AutoBatchOther';
 // import Transition from '@/components/section4/Transition';
 
+import { Suspense } from 'react';
 import ReactQuery from '@/components/section5/ReactQuery';
 
 const App = () => {
@@ -19,7 +20,9 @@ const App = () => {
       {/* <Transition /> */}
 
       {/* --- Section5 --- */}
-      <ReactQuery />
+      <Suspense fallback={<h2 className="text-green-500 text-center font-semibold">Loading...</h2>}>
+        <ReactQuery />
+      </Suspense>
     </div>
   );
 };

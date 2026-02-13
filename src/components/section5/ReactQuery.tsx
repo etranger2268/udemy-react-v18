@@ -1,23 +1,7 @@
 import { useAlbums } from '@/components/section5/_hook/useAlbums';
 
 const ReactQuery = () => {
-  const { isLoading, error, albums } = useAlbums();
-
-  if (error) {
-    return (
-      <div className="text-center">
-        <h2 className="text-2xl text-red-500 font-semibold">{error}</h2>
-      </div>
-    );
-  }
-
-  if (isLoading || albums === null) {
-    return (
-      <div className="text-center">
-        <h2 className="text-2xl text-green-500 font-semibold">Loading...</h2>
-      </div>
-    );
-  }
+  const { data: albums } = useAlbums();
 
   return (
     <div className="text-center space-y-3">
