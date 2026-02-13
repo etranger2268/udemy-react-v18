@@ -1,8 +1,9 @@
 // import Section2 from '@/components/section2/Section2';
 // import AutoBatchEventHandler from '@/components/section3/AutoBatchEventHandler';
 // import AutoBatchOther from '@/components/section3/AutoBatchOther';
+// import Transition from '@/components/section4/Transition';
 
-import Transition from '@/components/section4/Transition';
+import ReactQuery from '@/components/section5/ReactQuery';
 
 const App = () => {
   return (
@@ -15,7 +16,10 @@ const App = () => {
       {/* <AutoBatchOther /> */}
 
       {/* --- Section4 --- */}
-      <Transition />
+      {/* <Transition /> */}
+
+      {/* --- Section5 --- */}
+      <ReactQuery />
     </div>
   );
 };
