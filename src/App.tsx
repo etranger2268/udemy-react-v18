@@ -4,6 +4,7 @@
 // import Transition from '@/components/section4/Transition';
 
 import { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 import ReactQuery from '@/components/section5/ReactQuery';
 
 const App = () => {
@@ -20,9 +21,13 @@ const App = () => {
       {/* <Transition /> */}
 
       {/* --- Section5 --- */}
-      <Suspense fallback={<h2 className="text-green-500 text-center font-semibold">Loading...</h2>}>
-        <ReactQuery />
-      </Suspense>
+      <ErrorBoundary fallback={<h2 className="text-red-500 text-center">Error</h2>}>
+        <Suspense
+          fallback={<h2 className="text-green-500 text-center font-semibold">Loading...</h2>}
+        >
+          <ReactQuery />
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 };
